@@ -1,0 +1,90 @@
+/* colors */
+/* light theme */
+/* dark theme */
+/* check bg */
+/* font style */
+.task-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border: 1px solid transparent;
+  font-size: 0.75rem;
+  color: #484b6a;
+  border-bottom: 1px solid #e4e5f1;
+}
+.task-container.dark {
+  color: #cacde8;
+  border-bottom: 1px solid #393a4c;
+}
+.task-inner {
+  display: flex;
+  align-items: center;
+}
+.task-description.checked {
+  text-decoration: line-through;
+  color: #d2d3db;
+}
+.task-description.checked.dark {
+  color: #5b5e7e;
+}
+
+.tasklist-container {
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom: 6.5rem;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.03);
+}
+.tasklist-container.dark {
+  background-color: #25273c;
+}
+.tasklist-lastrow {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.125rem 1.25rem;
+  color: #9394a5;
+  font-size: 0.75rem;
+}
+.tasklist-lastrow.dark {
+  color: #5b5e7e;
+}
+
+.filter-btn {
+  font-weight: bold;
+  font-size: 0.875rem;
+  color: #9394a5;
+}
+.filter-btn.dark {
+  color: #5b5e7e;
+}
+.filter-btn:not(:last-child) {
+  margin-right: 1rem;
+}
+.filter-btn:hover, .filter-btn:focus, .filter-btn:active {
+  color: #3a7bfd;
+}
+.filter-btn-container {
+  position: absolute;
+  padding: 1rem 1.25rem;
+  left: 0;
+  bottom: -4rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.03);
+}
+.filter-btn-container.dark {
+  background-color: #25273c;
+}
+
+.clear-btn {
+  color: #9394a5;
+}
+.clear-btn.dark {
+  color: #5b5e7e;
+}
+
+/*# sourceMappingURL=TaskList.css.map */

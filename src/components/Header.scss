@@ -1,0 +1,51 @@
+@use '../sass/variables';
+@use '../sass/mixins';
+
+.header {
+  padding-top: 3rem;
+  padding-bottom: 2.75rem;
+  background: url('../images/bg-mobile-light.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  @include mixins.mq(medium) {
+    background: url('../images/bg-desktop-light.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  }
+  &.dark {
+    background: url('../images/bg-mobile-dark.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    @include mixins.mq(medium) {
+      background: url('../images/bg-desktop-dark.jpg');
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: cover;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.6rem;
+  }
+  &__logo {
+    color: #fff;
+    font-size: 1.125rem;
+
+    &--title {
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      letter-spacing: 0.7rem;
+    }
+  }
+  &__btn {
+    & img {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}

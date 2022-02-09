@@ -1,0 +1,96 @@
+@use '../sass/variables';
+@use '../sass/mixins';
+
+.task {
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border: 1px solid transparent;
+    font-size: 0.75rem;
+    color: variables.$color-very-dark-gray-blue;
+    border-bottom: 1px solid variables.$color-very-light-gray-blue;
+    &.dark {
+      color: variables.$color-light-gray-blue-darkmode;
+      border-bottom: 1px solid variables.$color-very-dark-gray-blue-darkmode;
+    }
+  }
+  &-inner {
+    display: flex;
+
+    align-items: center;
+  }
+  &-description {
+    &.checked {
+      text-decoration: line-through;
+      color: variables.$color-light-gray-blue;
+      &.dark {
+        color: variables.$color-tasklist-body;
+      }
+    }
+  }
+}
+
+.tasklist {
+  &-container {
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 6.5rem;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.03);
+
+    &.dark {
+      background-color: variables.$color-very-dark-desaturated-blue;
+    }
+  }
+  &-lastrow {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.125rem 1.25rem;
+    color: variables.$color-dark-gray-blue;
+    font-size: 0.75rem;
+    &.dark {
+      color: variables.$color-tasklist-body;
+    }
+  }
+}
+.filter-btn {
+  font-weight: bold;
+  font-size: 0.875rem;
+  color: variables.$color-dark-gray-blue;
+  &.dark {
+    color: variables.$color-tasklist-body;
+  }
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    color: variables.$color-blue;
+  }
+  &-container {
+    position: absolute;
+    padding: 1rem 1.25rem;
+    left: 0;
+    bottom: -4rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.03);
+
+    &.dark {
+      background-color: variables.$color-very-dark-desaturated-blue;
+    }
+  }
+}
+.clear-btn {
+  color: variables.$color-dark-gray-blue;
+  &.dark {
+    color: variables.$color-tasklist-body;
+  }
+}
