@@ -155,6 +155,7 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
                                 setCheck(e.target.value);
                                 handleUncompleted(task.id);
                               }}
+                              id="selectable-element"
                             />
                           ) : (
                             <input
@@ -168,7 +169,6 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
                             />
                           )}
                         </form>
-
                         <div className="text-container">
                           <span
                             className={
