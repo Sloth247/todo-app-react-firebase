@@ -15,13 +15,18 @@
       color: variables.$color-light-gray-blue-darkmode;
       border-bottom: 1px solid variables.$color-very-dark-gray-blue-darkmode;
     }
+    @include mixins.mq(medium) {
+      padding: 1.25rem 1.5rem;
+    }
   }
   &-inner {
     display: flex;
-
     align-items: center;
   }
   &-description {
+    @include mixins.mq(medium) {
+      font-size: 1.125rem;
+    }
     &.checked {
       text-decoration: line-through;
       color: variables.$color-light-gray-blue;
@@ -36,11 +41,15 @@
   &-container {
     background: #fff;
     border-radius: 5px;
-    margin-bottom: 6.5rem;
+    margin-bottom: calc(6.5rem - 1.75rem);
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.03);
-
+    transform: translateY(-1.75rem);
     &.dark {
       background-color: variables.$color-very-dark-desaturated-blue;
+    }
+    @include mixins.mq(medium) {
+      transform: translateY(-3.375rem);
+      margin-bottom: calc(3rem - 3.375rem);
     }
   }
   &-lastrow {
@@ -85,10 +94,32 @@ input[type='checkbox'] {
       border: 1px solid variables.$color-dark-gray-blue-darkmode;
     }
   }
+  &:hover::after,
+  &:focus::after {
+    background: variables.$bg-check;
+    border: none;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+  }
   &:checked::after {
     content: url('../images/icon-check.svg');
     background: variables.$bg-check;
     border: none;
+    -webkit-mask: unset;
+    mask: unset;
+    -webkit-mask-composite: unset;
+    mask-composite: unset;
+    padding: 0;
+  }
+}
+
+.checkbox {
+  &.dark::after {
+    border: 1px solid variables.$color-dark-gray-blue-darkmode;
   }
 }
 
@@ -98,13 +129,21 @@ input[type='checkbox'] {
   color: variables.$color-dark-gray-blue;
   &.dark {
     color: variables.$color-tasklist-body;
+    &:hover,
+    &:focus {
+      color: variables.$color-light-gray-blue-hover;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: variables.$color-very-dark-gray-blue;
   }
 
   &:not(:last-child) {
     margin-right: 1rem;
   }
-  &:hover,
-  &:focus,
+
   &:active {
     color: variables.$color-blue;
   }
@@ -123,11 +162,29 @@ input[type='checkbox'] {
     &.dark {
       background-color: variables.$color-very-dark-desaturated-blue;
     }
+    @include mixins.mq(medium) {
+      position: unset;
+      padding: 0;
+      width: auto;
+      background-color: transparent;
+      border: none;
+    }
+  }
+  &.activated {
+    color: variables.$color-blue;
   }
 }
 .clear-btn {
   color: variables.$color-dark-gray-blue;
   &.dark {
     color: variables.$color-tasklist-body;
+    &:hover,
+    &:focus {
+      color: variables.$color-light-gray-blue-hover;
+    }
+  }
+  &:hover,
+  &:focus {
+    color: variables.$color-very-dark-gray-blue;
   }
 }

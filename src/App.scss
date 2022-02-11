@@ -64,13 +64,22 @@ button {
 }
 .wrapper {
   padding: 0 1.625rem;
+  margin: 0 auto;
 }
 
 .main {
   padding-bottom: 4.5rem;
+  max-width: 33.75rem;
+  @include mixins.mq(medium) {
+    padding: 0;
+  }
 }
 
 .instruction {
   text-align: center;
   font-size: 0.825rem;
+
+  @include mixins.mq(medium) {
+    margin-bottom: 3.25rem;
+  }
 }

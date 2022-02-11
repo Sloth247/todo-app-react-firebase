@@ -17,6 +17,9 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 export default function TaskList({ check, tasks, setCheck, num, setData }) {
   const { mode } = useTheme();
   const [updatedTasks, setUpdatedTasks] = useState(tasks);
+  const [filterAll, setFilterAll] = useState(null);
+  const [filterActive, setFilterActive] = useState(null);
+  const [filterCompleted, setFilterCompleted] = useState(null);
 
   const handleDelete = (id) => {
     projectFirestore.collection('tasks').doc(id).delete();
@@ -34,6 +37,9 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
             results.push({ id: doc.id, ...doc.data() });
           });
           setData(results);
+          setFilterAll(true);
+          setFilterActive(false);
+          setFilterCompleted(false);
         },
         (err) => {
           console.log(err.message);
@@ -53,6 +59,9 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
             results.push({ id: doc.id, ...doc.data() });
           });
           setData(results);
+          setFilterAll(false);
+          setFilterActive(true);
+          setFilterCompleted(false);
         },
         (err) => {
           console.log(err.message);
@@ -72,6 +81,9 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
             results.push({ id: doc.id, ...doc.data() });
           });
           setData(results);
+          setFilterAll(false);
+          setFilterActive(false);
+          setFilterCompleted(true);
         },
         (err) => {
           console.log(err.message);
@@ -149,7 +161,9 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
                           {task.check ? (
                             <input
                               type="checkbox"
-                              className="checkbox"
+                              className={
+                                mode === 'light' ? 'checkbox' : 'checkbox dark'
+                              }
                               checked={task.check}
                               onChange={(e) => {
                                 setCheck(e.target.value);
@@ -160,7 +174,9 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
                           ) : (
                             <input
                               type="checkbox"
-                              className="checkbox"
+                              className={
+                                mode === 'light' ? 'checkbox' : 'checkbox dark'
+                              }
                               checked={task.check}
                               onChange={(e) => {
                                 setCheck(e.target.value);
@@ -212,7 +228,15 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
               >
                 <button
                   className={
-                    mode === 'light' ? 'filter-btn' : 'filter-btn dark'
+                    mode === 'light' && filterAll
+                      ? 'filter-btn activated'
+                      : mode === 'light' && !filterAll
+                      ? 'filter-btn'
+                      : mode === 'dark' && filterAll
+                      ? 'filter-btn dark activated'
+                      : mode === 'dark' && !filterAll
+                      ? 'filter-btn dark'
+                      : null
                   }
                   onClick={handleFilterAll}
                 >
@@ -220,7 +244,15 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
                 </button>
                 <button
                   className={
-                    mode === 'light' ? 'filter-btn' : 'filter-btn dark'
+                    mode === 'light' && filterActive
+                      ? 'filter-btn activated'
+                      : mode === 'light' && !filterActive
+                      ? 'filter-btn'
+                      : mode === 'dark' && filterActive
+                      ? 'filter-btn dark activated'
+                      : mode === 'dark' && !filterActive
+                      ? 'filter-btn dark'
+                      : null
                   }
                   onClick={handleFilterActive}
                 >
@@ -228,7 +260,15 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
                 </button>
                 <button
                   className={
-                    mode === 'light' ? 'filter-btn' : 'filter-btn dark'
+                    mode === 'light' && filterCompleted
+                      ? 'filter-btn activated'
+                      : mode === 'light' && !filterCompleted
+                      ? 'filter-btn'
+                      : mode === 'dark' && filterCompleted
+                      ? 'filter-btn dark activated'
+                      : mode === 'dark' && !filterCompleted
+                      ? 'filter-btn dark'
+                      : null
                   }
                   onClick={handleFilterCompleted}
                 >

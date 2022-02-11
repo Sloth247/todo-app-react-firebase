@@ -69,15 +69,27 @@ button {
 
 .wrapper {
   padding: 0 1.625rem;
+  margin: 0 auto;
 }
 
 .main {
   padding-bottom: 4.5rem;
+  max-width: 33.75rem;
+}
+@media screen and (min-width: 40em) {
+  .main {
+    padding: 0;
+  }
 }
 
 .instruction {
   text-align: center;
   font-size: 0.825rem;
+}
+@media screen and (min-width: 40em) {
+  .instruction {
+    margin-bottom: 3.25rem;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

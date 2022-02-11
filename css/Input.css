@@ -15,6 +15,11 @@
 .form.dark {
   background-color: #25273c;
 }
+@media screen and (min-width: 40em) {
+  .form {
+    padding: 1.25rem 1.5rem;
+  }
+}
 
 .checkbox-container {
   position: relative;
@@ -47,20 +52,44 @@ input[type=checkbox]::after {
 input[type=checkbox]::after.dark {
   border: 1px solid #777a92;
 }
+@media screen and (min-width: 40em) {
+  input[type=checkbox]::after {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
 input[type=checkbox]:checked::after {
   content: url("../images/icon-check.svg");
   background: linear-gradient(135deg, #57ddff, #c058f3);
   border: none;
 }
 
+.checkbox.dark::after {
+  border: 1px solid #777a92;
+}
+
 .text-container {
   margin-left: 1.5rem;
   border: transparent;
+}
+@media screen and (min-width: 40em) {
+  .text-container {
+    margin-left: 2rem;
+  }
 }
 
 .text-input {
   color: #484b6a;
   border: transparent;
+  font-size: 0.75rem;
+}
+.text-input.dark {
+  color: #cacde8;
+}
+@media screen and (min-width: 40em) {
+  .text-input {
+    font-size: 1.125rem;
+  }
 }
 .text-input::-moz-placeholder {
   color: #9394a5;

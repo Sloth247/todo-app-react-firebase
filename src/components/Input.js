@@ -21,8 +21,9 @@ export default function Input({ check, setCheck }) {
       };
       try {
         await projectFirestore.collection('tasks').add(doc);
-        setDescription('');
         e.target.checked = false;
+        setCheck(false);
+        setDescription('');
       } catch (err) {
         console.log(err);
       }

@@ -5,7 +5,7 @@
 /* font style */
 .header {
   padding-top: 3rem;
-  padding-bottom: 2.75rem;
+  padding-bottom: 2.5rem;
   background: url("../images/bg-mobile-light.jpg");
   background-repeat: no-repeat;
   background-position: top center;
@@ -17,6 +17,8 @@
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
+    padding-top: 4.375rem;
+    padding-bottom: 4.875rem;
   }
 }
 .header.dark {
@@ -33,23 +35,44 @@
     background-size: cover;
   }
 }
+@media screen and (min-width: 40em) {
+  .header__inner {
+    max-width: 33.75rem;
+    margin: 0 auto;
+  }
+}
 .header__nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.6rem;
 }
+@media screen and (min-width: 40em) {
+  .header__nav {
+    margin-bottom: 2.5rem;
+  }
+}
 .header__logo {
   color: #fff;
-  font-size: 1.125rem;
 }
 .header__logo--title {
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   letter-spacing: 0.7rem;
+  font-size: 1.25rem;
+}
+@media screen and (min-width: 40em) {
+  .header__logo--title {
+    font-size: 2.5rem;
+  }
 }
 .header__btn img {
   width: 1.25rem;
   height: 1.25rem;
+}
+@media screen and (min-width: 40em) {
+  .header__btn img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
 
 /*# sourceMappingURL=Header.css.map */

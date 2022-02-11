@@ -8,8 +8,12 @@
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 5px;
+
   &.dark {
     background-color: variables.$color-very-dark-desaturated-blue;
+  }
+  @include mixins.mq(medium) {
+    padding: 1.25rem 1.5rem;
   }
 }
 
@@ -41,6 +45,10 @@ input[type='checkbox'] {
     &.dark {
       border: 1px solid variables.$color-dark-gray-blue-darkmode;
     }
+    @include mixins.mq(medium) {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
   &:checked::after {
     content: url('../images/icon-check.svg');
@@ -48,14 +56,31 @@ input[type='checkbox'] {
     border: none;
   }
 }
+.checkbox {
+  &.dark::after {
+    border: 1px solid variables.$color-dark-gray-blue-darkmode;
+  }
+}
 
 .text-container {
   margin-left: 1.5rem;
   border: transparent;
+
+  @include mixins.mq(medium) {
+    margin-left: 2rem;
+  }
 }
 .text-input {
   color: variables.$color-very-dark-gray-blue;
   border: transparent;
+  font-size: 0.75rem;
+  &.dark {
+    color: variables.$color-light-gray-blue-darkmode;
+  }
+  @include mixins.mq(medium) {
+    font-size: 1.125rem;
+  }
+
   &::placeholder {
     color: variables.$color-dark-gray-blue;
     font-family: variables.$font-primary;
