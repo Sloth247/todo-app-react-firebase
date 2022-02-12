@@ -21,9 +21,10 @@ export default function Input({ check, setCheck }) {
       };
       try {
         await projectFirestore.collection('tasks').add(doc);
-        e.target.checked = false;
-        setCheck(false);
         setDescription('');
+        if (check) {
+          setCheck(false);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -40,6 +41,7 @@ export default function Input({ check, setCheck }) {
           type="checkbox"
           className={mode === 'light' ? 'checkbox' : 'checkbox dark'}
           value={check}
+          checked={check}
           onChange={(e) => setCheck(e.target.checked)}
           onKeyUp={handleKeyUp}
         />

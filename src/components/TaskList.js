@@ -36,10 +36,10 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
           snapshot.docs.forEach((doc) => {
             results.push({ id: doc.id, ...doc.data() });
           });
-          setData(results);
           setFilterAll(true);
           setFilterActive(false);
           setFilterCompleted(false);
+          setData(results);
         },
         (err) => {
           console.log(err.message);
@@ -58,10 +58,10 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
           querySnapshot.docs.forEach((doc) => {
             results.push({ id: doc.id, ...doc.data() });
           });
-          setData(results);
           setFilterAll(false);
           setFilterActive(true);
           setFilterCompleted(false);
+          setData(results);
         },
         (err) => {
           console.log(err.message);
@@ -80,10 +80,10 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
           querySnapshot.docs.forEach((doc) => {
             results.push({ id: doc.id, ...doc.data() });
           });
-          setData(results);
           setFilterAll(false);
           setFilterActive(false);
           setFilterCompleted(true);
+          setData(results);
         },
         (err) => {
           console.log(err.message);

@@ -10,7 +10,7 @@ export default function Attribution() {
         <a href={url} target="_blank" rel="noopener noreferrer">
           Frontend Mentor
         </a>
-        . Coded by <a href={mypage}>Your Name Here</a>.
+        . Coded by <a href={mypage}>Yuko Horita</a>.
       </div>
     </footer>
   );
