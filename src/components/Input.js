@@ -37,6 +37,9 @@ export default function Input({ check, setCheck }) {
       onSubmit={handleKeyUp}
     >
       <div className="checkbox-container">
+        <label htmlFor="check-input" className="sr-only">
+          Check if the task is completed
+        </label>
         <input
           type="checkbox"
           className={mode === 'light' ? 'checkbox' : 'checkbox dark'}
@@ -44,9 +47,13 @@ export default function Input({ check, setCheck }) {
           checked={check}
           onChange={(e) => setCheck(e.target.checked)}
           onKeyUp={handleKeyUp}
+          id="check-input"
         />
       </div>
       <div className="text-container">
+        <label htmlFor="task-input" className="sr-only">
+          Input a task
+        </label>
         <input
           type="text"
           placeholder="Create a new todo..."
@@ -54,6 +61,7 @@ export default function Input({ check, setCheck }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           onKeyUp={handleKeyUp}
+          id="check-input"
         />
       </div>
     </form>

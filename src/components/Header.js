@@ -30,12 +30,12 @@ export default function Header({ check, setCheck }) {
           <button
             className="header__btn"
             onClick={toggleMode}
-            aria-labelledby="theme toggle"
+            aria-labelledby="theme-toggle"
           >
             <img
               src={mode === 'light' ? Moon : Sun}
               alt={mode === 'light' ? 'Light Mode' : 'Dark Mode'}
-              id="theme toggle"
+              id="theme-toggle"
             />
           </button>
         </nav>

@@ -158,6 +158,12 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
                     >
                       <div className="task-inner">
                         <form className="checkbox-container">
+                          <label
+                            htmlFor="tasklist-checkbox"
+                            className="sr-only"
+                          >
+                            check if completed
+                          </label>
                           {task.check ? (
                             <input
                               type="checkbox"
@@ -169,7 +175,7 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
                                 setCheck(e.target.value);
                                 handleUncompleted(task.id);
                               }}
-                              id="selectable-element"
+                              id="tasklist-checkbox"
                             />
                           ) : (
                             <input
@@ -182,6 +188,7 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
                                 setCheck(e.target.value);
                                 handleCompleted(task.id);
                               }}
+                              id="tasklist-checkbox"
                             />
                           )}
                         </form>
