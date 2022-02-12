@@ -61,7 +61,7 @@ export default function Input({ check, setCheck }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           onKeyUp={handleKeyUp}
-          id="check-input"
+          id="task-input"
         />
       </div>
     </form>
