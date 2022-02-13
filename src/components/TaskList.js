@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useTheme } from '../hooks/useTheme';
 
@@ -14,12 +14,16 @@ import { projectFirestore } from '../firebase/config';
 // beautiful dnd lib
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 
-export default function TaskList({ check, tasks, setCheck, num, setData }) {
+export default function TaskList({ tasks, setCheck, num, setData }) {
   const { mode } = useTheme();
-  const [updatedTasks, setUpdatedTasks] = useState(tasks);
+  const [updatedTasks, setUpdatedTasks] = useState(null);
   const [filterAll, setFilterAll] = useState(null);
   const [filterActive, setFilterActive] = useState(null);
   const [filterCompleted, setFilterCompleted] = useState(null);
+
+  useEffect(() => {
+    setUpdatedTasks(tasks);
+  }, [tasks]);
 
   const handleDelete = (id) => {
     projectFirestore.collection('tasks').doc(id).delete();
@@ -122,11 +126,19 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
   const handleOnDragEnd = (result) => {
     if (!result.destination) return;
     console.log(result);
-    const items = Array.from(updatedTasks);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
+    // const items = Array.from(updatedTasks);
+    // const [reorderedItem] = items.splice(result.source.index, 1);
+    // items.splice(result.destination.index, 0, reorderedItem);
+    setUpdatedTasks((updatedTasks) =>
+      reorder(updatedTasks, result.source.index, result.destination.index)
+    );
+  };
 
-    setUpdatedTasks(items);
+  const reorder = (tasks, sourceIndex, destinationIndex) => {
+    const result = [...tasks];
+    const [reordereditem] = result.splice(sourceIndex, 1);
+    result.splice(destinationIndex, 0, reordereditem);
+    return result;
   };
 
   return (
@@ -142,8 +154,8 @@ export default function TaskList({ check, tasks, setCheck, num, setData }) {
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
-            {tasks &&
-              tasks.map((task, index) => (
+            {updatedTasks &&
+              updatedTasks.map((task, index) => (
                 <Draggable key={task.id} draggableId={task.id} index={index}>
                   {(provided) => (
                     <li
