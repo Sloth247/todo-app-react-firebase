@@ -128,7 +128,7 @@ input[type='checkbox'] {
 
 ### Continued development
 
-- I could make the code for getting firestore data, as I repeat the functions to get the different data to sort/filter the tasks.
+- I could reduce the code for getting firestore data, as I repeat the functions to get the different data to sort/filter the tasks.
 - I could use hooks / context file to store most of functions in Tasklist.js, as it is filled with a lot of functions.
 
 ### Useful resources
