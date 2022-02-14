@@ -7,22 +7,21 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
+  - [Links](#links) -[Get Started](#get-started)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
-## Overview
+## Overview {#overview}
 
 This is a single page full-stack Todo App using React.js, Firebase and beautiful dnd library.
 
-### The challenge
+### The challenge {#screenshot}
 
 Users should be able to:
 
@@ -36,87 +35,110 @@ Users should be able to:
 - Toggle light and dark mode
 - **Bonus**: Drag and drop to reorder items on the list
 
-### Screenshot
+### Screenshot {#the-challenge}
 
-![](./screenshot.jpg)
+**📱 Mobile View (at 375px width)**
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+![](./src/images/screenshots/todo-app-mobile-view.png)
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
+**💻 Desktop View (at 1440px width)**
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+![](./src/images/screenshots/todo-app-desktop-view.png)
 
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+**🕶 Dark Mode**
 
-### Links
+![](./src/images/screenshots/todo-app-dark-mode-mobile.png)
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+![](./src/images/screenshots/todo-app-dark-mode-desktop.png)
 
-## My process
+**⌨ Typing...**
 
-### Built with
+![](./src/images/screenshots/todo-app-typing.png)
+
+**🔎 Filter Active Tasks**
+
+![](./src/images/screenshots/todo-app-filter-active.png)
+
+**🔎 Filter Completed Tasks**
+
+![](./src/images/screenshots/todo-app-filter-completed.png)
+
+### Links {#links}
+
+- Solution URL: [https://www.frontendmentor.io/solutions/to-do-app-w-react-firebase-and-drag-and-drop-izclmiWZh](https://www.frontendmentor.io/solutions/to-do-app-w-react-firebase-and-drag-and-drop-izclmiWZh)
+- Live Site URL: [https://to-do-app-fem.firebaseapp.com](https://to-do-app-fem.firebaseapp.com)
+
+## Get Started {#get-started}
+
+1. Make a clone from 'Code' at the top right corner of this repository
+2. In your terminal, installing node modules by running the following
+
+```
+yarn install
+
+or
+
+npm install
+
+```
+
+3. Run live development server [http://localhost:3000/](http://localhost:3000/).
+
+## My process {#my-process}
+
+I wanted to have some experience building an app with React and Firebase, so I chose to store the data in Firebase's Cloud Firestore. In Firestore, the checked status for checkbox and description of task, and the date the document created are stored.
+
+First, I created the apperance of the app by HTML and SCSS then started adding functions to interactive elements, such as buttons. This time I tried not to use context and reducer as much as possible, as this is a small size project. I applied prop driling and only used context and reducers for switching light/ dark mode.
+
+Drag and drop feature was created with [React Beautiful bnb library](https://github.com/atlassian/react-beautiful-dnd/) to make things correctly set rather than manually create with HTML5 drag and drop.
+
+### Built with {#built-with}
 
 - Semantic HTML5 markup
 - CSS custom properties
+- Sass/Scss
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- [Firebase Firestore](https://firebase.google.com/) - For Backend
+- [Beautiful dnd](https://github.com/atlassian/react-beautiful-dnd/) - For drag & drop feature
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+### What I learned {#what-i-learnt}
 
-### What I learned
+To make the border of checkbox linear gradient color, I googled and found out the following solution adding mask property;
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-  color: papayawhip;
+```TaskList.scss
+input[type='checkbox'] {
+  ...
+  &:hover::after,
+  &:focus::after {
+    background: variables.$bg-check;
+    border: none;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+  }
 }
+
 ```
 
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉');
-};
-```
+### Continued development {#continued-development}
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+- I could make the code for getting firestore data, as I repeat the functions to get the different data to sort/filter the tasks.
+- I could use hooks / context file to store most of functions in Tasklist.js, as it is filled with a lot of functions.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+### Useful resources {#useful-resources}
 
-### Continued development
+- [How to Add Drag and Drop in React with React Beautiful DnD](https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/) - It helped me to figure out how I can adopt to reorder the list by drag & drop and store the states using beautiful dnd library.
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+- [Build Web Apps with React & Firebase](https://www.udemy.com/course/build-web-apps-with-react-firebase/) - It is a great course to understand firebase and react from scratch.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+## Author {#author}
 
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Website - [Yuko Horita](https://yukohorita-dev.vercel.app/)
+- Frontend Mentor - [@Sloth247](https://www.frontendmentor.io/profile/Sloth247)
+- Twitter - [@yuko_webdev](https://www.twitter.com/yuko_webdev)

@@ -17,15 +17,18 @@ html {
   outline-offset: 10px;
 }
 
-body {
-  width: 100%;
-  max-width: 100%;
-  min-height: 100vh;
-}
+// body {
+//   width: 100%;
+//   max-width: 100%;
+//   min-height: 100vh;
+// }
 .App {
   font-family: variables.$font-primary;
   color: variables.$color-dark-gray-blue;
   background-color: variables.$color-very-light-gray;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
 
   &.dark {
     color: variables.$color-tasklist-body;

@@ -21,16 +21,13 @@ html {
   outline-offset: 10px;
 }
 
-body {
-  width: 100%;
-  max-width: 100%;
-  min-height: 100vh;
-}
-
 .App {
   font-family: "Josefin Sans", sans-serif;
   color: #9394a5;
   background-color: #fafafa;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
 }
 .App.dark {
   color: #5b5e7e;
