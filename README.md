@@ -17,7 +17,7 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
-## Overview {#overview}
+## Overview{#overview}
 
 This is a single page full-stack Todo App using React.js, Firebase and beautiful dnd library.
 
