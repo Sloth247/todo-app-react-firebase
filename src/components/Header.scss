@@ -30,10 +30,8 @@
     }
   }
   &__inner {
-    @include mixins.mq(medium) {
-      max-width: 33.75rem;
-      margin: 0 auto;
-    }
+    max-width: 33.75rem;
+    margin: 0 auto;
   }
   &__nav {
     display: flex;

@@ -45,6 +45,8 @@
   margin-bottom: 4.75rem;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.03);
   transform: translateY(-1.75rem);
+  max-width: 33.75rem;
+  margin: 0 auto;
 }
 .tasklist-container.dark {
   background-color: #25273c;

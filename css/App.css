@@ -74,10 +74,10 @@ button {
 
 .main {
   padding-bottom: 4.5rem;
-  max-width: 33.75rem;
 }
 @media screen and (min-width: 40em) {
   .main {
+    max-width: 33.75rem;
     padding: 0;
   }
 }
