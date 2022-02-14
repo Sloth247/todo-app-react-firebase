@@ -71,7 +71,7 @@ Users should be able to:
 ## Get Started
 
 1. Make a clone from 'Code' at the top right corner of this repository
-2. In your terminal, installing node modules by running the following
+2. In your terminal, install node modules by running the following
 
 ```
 yarn install
